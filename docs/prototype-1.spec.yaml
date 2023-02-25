@@ -1,0 +1,40 @@
+---
+title: Prototype 1 Specification Document
+purpose: To define the specifications for Prototype 1
+date: 2023-02-25
+version: 0.0.1
+file-name: prototype-1.spec.yaml
+full-path: ${project-root}/docs/prototype-1.spec.yaml
+controls:
+  - mode: "draw/select"
+    location: "Top left corner of the canvas"
+  - color: "red, green, blue, yellow"
+    location: "Top right corner of the canvas"
+
+use-cases:
+  - title: Draw a Rectangle
+    purpose: To allow the user to draw a rectangle on the canvas
+    primary-actor: Julia
+    preconditions:
+      - The user has launched the application and is presented with a blank canvas
+    steps:
+      - The user selects the draw mode from the control located in the top left corner of the canvas
+      - The user selects a color from the control located in the top right corner of the canvas
+      - The user clicks and holds the right mouse button on the canvas to define the first vertex of the rectangle
+      - The user drags the mouse to define the second vertex of the rectangle
+      - The user releases the mouse button to draw the rectangle
+    postconditions:
+      - A rectangle of the selected color is drawn on the canvas with the defined vertices
+
+  - title: Select a Rectangle
+    purpose: To allow the user to select a rectangle on the canvas
+    primary-actor: Julia
+    preconditions:
+      - The user has launched the application and there are one or more rectangles drawn on the canvas
+    steps:
+      - The user selects the select mode from the control located in the top left corner of the canvas
+      - The user clicks on a rectangle to select it
+      - The user clicks on a selected rectangle to deselect it
+    postconditions:
+      - The selected rectangle is highlighted and can be moved or deleted by the user
+      - Only one rectangle can be selected at a time
