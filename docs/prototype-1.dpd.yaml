@@ -1,0 +1,17 @@
+---
+title: Prototype 1 Development Protocol Document
+purpose: To define the development protocol for Prototype 1
+date: 2023-02-25
+version: 0.0.1
+file-name: prototype-1.dpd.yaml
+full-path: ${project-root}/docs/prototype-1.dpd.yaml
+---
+1. All files and directories for this prototype will be listed in a file called directory-structure.yaml.
+2. Any changes to the files or directories referenced in directory-structure.yaml must be discussed and agreed upon before implementation.
+3. All files for the prototype must adhere to the directory structure listed in directory-structure.yaml.
+4. All changes to the code must be communicated and agreed upon before implementation.
+5. All code will be stored in a git repository controlled by Chris, and Chris will be responsible for version control.
+6. Chris will keep track of the version number for every change to the code.
+7. Any changes to the Prototype-1.dpd document itself must be discussed and agreed upon before implementation.
+8. The prototype specifications will be documented in a separate specification document, which the DPD will refer to as needed. The name of this document will be prototype-1.spec.yaml.
+9. Code changes must never have the goal of adding features not listed in the specification document, or removing or modifying features in a manner inconsistent with the specification document.
