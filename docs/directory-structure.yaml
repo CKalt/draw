@@ -1,0 +1,22 @@
+---
+title: Prototype 1 Directory Structure
+purpose: To define the directory structure for Prototype 1
+date: 2023-02-25
+version: 0.0.2
+project-name: webdraw
+file-name: directory-structure.yaml
+full-path: ${project-root}/docs/directory-structure.yaml
+---
+webapp:
+  - public:
+    - index.html
+    - favicon.ico
+    - ${project-name}.css
+    - ${project-name}.js
+  - src:
+    - App.js
+    - index.js
+docs:
+  - directory-structure.yaml
+  - prototype-1.spec.yaml
+  - prototype-1.dpd.yaml
