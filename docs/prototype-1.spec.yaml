@@ -1,40 +1,57 @@
 ---
-title: Prototype 1 Specification Document
-purpose: To define the specifications for Prototype 1
+title: Drawing Application Specification
+version: 0.0.2
 date: 2023-02-25
-version: 0.0.1
-file-name: prototype-1.spec.yaml
-full-path: ${project-root}/docs/prototype-1.spec.yaml
-controls:
-  - mode: "draw/select"
-    location: "Top left corner of the canvas"
-  - color: "red, green, blue, yellow"
-    location: "Top right corner of the canvas"
+description: A web-based drawing application that allows users to draw and manipulate shapes on a 2D canvas using CSS.
 
-use-cases:
-  - title: Draw a Rectangle
-    purpose: To allow the user to draw a rectangle on the canvas
+authors:
+  - John Doe
+
+sections:
+  - title: Overview
+    content: >
+      The drawing application is a tool for designing dynamic web content. The application allows users to create and manipulate shapes on a 2D canvas using CSS. The shapes are organized into a document that contains a list of objects to be drawn in a specific order. Currently, only rectangles are supported, but in the future, the list will include other shapes and object types, such as videos.
+
+      The canvas is a single sheet containing a 2D space for holding objects, and the document will consist of a list of these objects to be drawn in a specific order.
+
+      The drawing application also includes a set of tools used for supporting editing operations. These tools have states, including the current color and mode.
+
+  - title: Drawing
+    purpose: To allow the user to draw a rectangle on the canvas to be added to the end of the current list of rectangles, and therefore drawn last.
     primary-actor: Julia
     preconditions:
-      - The user has launched the application and is presented with a blank canvas
+      - The user has launched the application.
     steps:
-      - The user selects the draw mode from the control located in the top left corner of the canvas
-      - The user selects a color from the control located in the top right corner of the canvas
-      - The user clicks and holds the right mouse button on the canvas to define the first vertex of the rectangle
-      - The user drags the mouse to define the second vertex of the rectangle
-      - The user releases the mouse button to draw the rectangle
+      - The user selects the draw mode.
+      - The user selects a color from the color control located in the top right corner of the canvas. If no color is selected, the application will use black as the default color.
+      - The user clicks and holds down the left mouse button to define the first vertex of the rectangle.
+      - With the left mouse button held down, the user drags the mouse to define the second vertex of the rectangle.
+      - The user releases the left mouse button to draw the rectangle.
+      - The new rectangle will be added to the end of the list of rectangles.
     postconditions:
-      - A rectangle of the selected color is drawn on the canvas with the defined vertices
+      - The new rectangle will be drawn on top of any existing rectangles on the canvas in the current color.
 
   - title: Select a Rectangle
-    purpose: To allow the user to select a rectangle on the canvas
+    purpose: To allow the user to select a rectangle on the canvas.
     primary-actor: Julia
     preconditions:
-      - The user has launched the application and there are one or more rectangles drawn on the canvas
+      - The user has launched the application and there are one or more rectangles drawn on the canvas.
     steps:
-      - The user selects the select mode from the control located in the top left corner of the canvas
-      - The user clicks on a rectangle to select it
-      - The user clicks on a selected rectangle to deselect it
+      - When a rectangle is first created, it is unselected.
+      - When the user clicks on a rectangle, the selection state will be toggled.
+      - If the shift key is not depressed when the user clicks on a rectangle, then the selection state for all other rectangles will be set to unselected.
+      - If the shift key is depressed when the user clicks on a rectangle, then there will be no change in the selection state of the other rectangles.
+      - When the user clicks on a space with no objects (rectangles) and the shift key is not depressed, then all rectangle states will be set to unselected.
     postconditions:
-      - The selected rectangle is highlighted and can be moved or deleted by the user
-      - Only one rectangle can be selected at a time
+      - The selected rectangle is highlighted and can be deleted by the user.
+      - Multiple rectangles can be in a selected state at the same time by holding the shift key and proceeding to toggle multiple non-selected rectangles into the selected state.
+
+  - title: Delete a Rectangle
+    purpose: To allow the user to delete selected rectangles from the canvas.
+    primary-actor: Julia
+    preconditions:
+      - The user has launched the application and there are one or more rectangles drawn on the canvas.
+    steps:
+      - The user selects one or more rectangles on the canvas.
+      - The user presses the delete key.
+      - All selected rectangles will be removed from the
